@@ -11,7 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+       Schema::create('barang', function (Blueprint $table) {
+        $table->id();
+        $table->string('namabarang');
+        $table->string('kodeinventaris');
+        $table->integer('kategoriid');
+        $table->integer('ruanganid');
+        $table->string('tahunpengadaan');
+        $table->string('sumberdana');
+        $table->string('kondisi');
+        $table->timestamps();
+      });
     }
 
     /**
