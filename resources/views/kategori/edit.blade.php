@@ -8,7 +8,7 @@
             <tr>
                 <td scope="row" class="text-center">Nama Kategori</td>
                 <td scope="row" class="text-center">:</td>
-                <td scope="row" class="text-center"><input type="text" name="namakategori" value="{{ old('namakategori',$item->nama_kategori) }}"></td>
+                <td scope="row" class="text-center"><input type="text" name="namakategori" value="{{ old('namakategori',$item->namakategori) }}"></td>
                 <td scope="row" class="text-center"><input type="hidden" name="id" id=""></td>
             </tr>
             
