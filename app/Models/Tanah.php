@@ -13,9 +13,9 @@ class Tanah extends Model
 
     protected $fillable = [
     'namatanah',
-     'kodetanah',
-     'luas', 
-     'nosertifikat'
+    'kodetanah',
+    'luas', 
+    'nosertifikat'
     ];
 
     // Relasi: Tanah hasMany Bangunan
