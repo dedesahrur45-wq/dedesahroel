@@ -22,12 +22,12 @@
                 @foreach ($items as $item)
                 <tr>
                     <td scope="row" class="text-center">{{ $loop->iteration }}</td>
-                    <td>{{ $item->nama}}</td>
-                    <td>{{ $item->email}}</td>
-                    <td>{{ $item->email_verified_at}}</td>
-                    <td>{{ $item->password}}</td>
-                    <td>{{ $item->role}}</td>
-                    <td>{{ $item->remember_token}}</td>
+                    <td scope="row" class="text-center">{{ $item->nama}}</td>
+                    <td scope="row" class="text-center">{{ $item->email}}</td>
+                    <td scope="row" class="text-center">{{ $item->email_verified_at}}</td>
+                    <td scope="row" class="text-center">{{ $item->password}}</td>
+                    <td scope="row" class="text-center">{{ $item->role}}</td>
+                    <td scope="row" class="text-center">{{ $item->remember_token}}</td>
                     <td>
                         <div class="d-flex justify-content-center gap-2">
                         <a class="btn btn-outline-success me-2" href="{{route('user.edit',$item->id)}}">Edit</a>

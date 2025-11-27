@@ -22,6 +22,7 @@
                 <td scope="row" class="text-center"><input type="text" name="kategoriid" id="" value="{{ old('kategoriid') }}"></td>
                 <td scope="row" class="text-center"><input type="hidden" name="id" id=""></td>
             </tr>
+            
             <tr>
                 <td scope="row" class="text-center">Ruanagan Id</td>
                 <td scope="row" class="text-center">:</td>

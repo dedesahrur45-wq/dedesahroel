@@ -23,6 +23,12 @@
                 <td scope="row" class="text-center"><input type="hidden" name="id" id=""></td>
             </tr>
             <tr>
+                <td scope="row" class="text-center">No Sertifiat</td>
+                <td scope="row" class="text-center">:</td>
+                <td scope="row" class="text-center"><input type="text" name="nosertifikat" id="" value="{{ old('nosertifikat') }}"></td>
+                <td scope="row" class="text-center"><input type="hidden" name="id" id=""></td>
+            </tr>
+            <tr>
                 <td></td>
                 <td scope="row" class="text-center"><input type="submit" value="SIMPAN" id=""></td>
                 <td scope="row" class="text-center"><button type="reset" style="border-radius: 5px;">BATAL</button></td>

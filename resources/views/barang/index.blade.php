@@ -16,7 +16,6 @@
                     <th scope="col" class="text-center">Nama Kategori</th>
                     <th scope="col" class="text-center">Kode Inventaris</th>
                     <th scope="col" class="text-center">Katagori Id</th>
-                    <th scope="col" class="text-center">Ruanagn Id</th>
                     <th scope="col" class="text-center">Tanhun pengadaan</th>
                     <th scope="col" class="text-center">Sumber dana</th>
                     <th scope="col" class="text-center">Kondisi</th>
@@ -27,13 +26,13 @@
                 @foreach ($items as $item)
                     <tr>
                         <td scope="row" class="text-center">{{ $loop->iteration }}</td>
-                        <td>{{ $item->namabarang }}</td>
-                        <td>{{ $item->kodeinventaris }}</td>
-                        <td>{{ $item->kategoriid }}</td>
-                        <td>{{ $item->ruanganid }}</td>
-                        <td>{{ $item->tahunpengadaan }}</td>
-                        <td>{{ $item->sumberdana }}</td>
-                        <td>{{ $item->kondisi }}</td>
+                        <td scope="row" class="text-center">{{ $item->namabarang }}</td>
+                        <td scope="row" class="text-center">{{ $item->kodeinventaris }}</td>
+                        <td scope="row" class="text-center">{{ $item->kategoriid }}</td>
+                        <td scope="row" class="text-center">{{ $item->ruanganid }}</td>
+                        <td scope="row" class="text-center">{{ $item->tahunpengadaan }}</td>
+                        <td scope="row" class="text-center">{{ $item->sumberdana }}</td>
+                        <td scope="row" class="text-center">{{ $item->kondisi }}</td>
                         <td>
                             <div class="d-flex justify-content-center gap-2">
                                 <a class="btn btn-outline-success me-2" href="{{ route('barang.edit', $item->id) }}">Edit</a>

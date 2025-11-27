@@ -21,7 +21,7 @@
                 @foreach ($items as $item)
                 <tr>
                     <td scope="row" class="text-center">{{ $loop->iteration }}</td>
-                    <td>{{ $item->namakategori}}</td>
+                    <td scope="row" class="text-center">{{ $item->namakategori}}</td>
                     <td>
                         <div class="d-flex justify-content-center gap-2">
                         <a class="btn btn-outline-success me-2" href="{{route('kategori.edit',$item->id)}}">Edit</a>

@@ -24,10 +24,10 @@
                 @foreach ($items as $item)
                 <tr>
                     <td scope="row" class="text-center">{{ $loop->iteration }}</td>
-                    <td>{{ $item->namatanah}}</td>
-                    <td>{{ $item->kodetanah}}</td>
-                    <td>{{ $item->luas}}</td>
-                    <td>{{ $item->nosertifikat}}</td>
+                    <td scope="row" class="text-center">{{ $item->namatanah}}</td>
+                    <td scope="row" class="text-center">{{ $item->kodetanah}}</td>
+                    <td scope="row" class="text-center">{{ $item->luas}}</td>
+                    <td scope="row" class="text-center">{{ $item->nosertifikat}}</td>
                     <td>
                         <div class="d-flex justify-content-center gap-2">
                         <a class="btn btn-outline-success me-2" href="{{route('tanah.edit',$item->id)}}">Edit</a>

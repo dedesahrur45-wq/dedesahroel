@@ -17,9 +17,9 @@
                 <td scope="row" class="text-center"><input type="hidden" name="id" id=""></td>
             </tr>
             <tr>
-                <td scope="row" class="text-center">Tanah</td>
+                <td scope="row" class="text-center">luas</td>
                 <td scope="row" class="text-center">:</td>
-                <td scope="row" class="text-center"><input type="text" name="tanah" id="" value="{{ old('tanah') }}"></td>
+                <td scope="row" class="text-center"><input type="text" name="luas" id="" value="{{ old('luas') }}"></td>
                 <td scope="row" class="text-center"><input type="hidden" name="id" id=""></td>
             </tr>
             <tr>
