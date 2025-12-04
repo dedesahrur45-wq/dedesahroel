@@ -4,17 +4,23 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
 class IsAdmin
 {
-    public function handle(Request $request, Closure $next): Response
+    /**
+     * Handle an incoming request.
+     */
+    public function handle(Request $request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->is_admin) {
-            return $next($request);
+        if (!Auth::check() || (Auth::user()->role ?? null) !== 'admin') {
+            if ($request->expectsJson()) {
+                return response()->json(['message' => 'Forbidden. Admins only.'], 403);
+            }
+
+            return redirect()->route('dashboard')->with('error', 'Akses ditolak. Hanya admin yang dapat mengakses halaman ini.');
         }
 
-        // jika bukan admin, redirect ke user dashboard atau login
-        return redirect()->route('user.dashboard')->with('error','Akses ditolak.');
+        return $next($request);
     }
 }

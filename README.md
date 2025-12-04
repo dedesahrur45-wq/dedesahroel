@@ -1,68 +1,120 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# SIMASET Sekolah
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem Informasi Manajemen Aset Sekolah (SIMASET Sekolah)
 
-## About Laravel
+Ringkasan singkat aplikasi ini, dependensi, cara menjalankan, dan struktur utama disusun di bawah untuk developer baru.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Tentang proyek**
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   Nama repo: `dedesahroel`
+-   Tujuan: Manajemen aset sekolah — entitas utama: `Barang`, `Kategori`, `Tanah`, `Bangunan`, `Ruangan`, dan `User`.
+-   Stack: Laravel 10 (PHP ^8.1) untuk backend; Vite + TailwindCSS + AlpineJS + Bootstrap untuk frontend; Sanctum tersedia untuk API auth.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Dependensi penting**
 
-## Learning Laravel
+-   PHP: ^8.1
+-   Laravel/framework: ^10.10
+-   Laravel Sanctum: ^3.3
+-   Dev: `laravel/breeze`, `pest` (testing), `laravel/pint`, `laravel/sail` (opsional)
+-   JS: `vite`, `laravel-vite-plugin`, `tailwindcss`, `alpinejs`, `axios`, `bootstrap`
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**Struktur penting (lokasi file)**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+-   Models: `app/Models/` (`Barang.php`, `Kategori.php`, `Tanah.php`, `Bangunan.php`, `Ruangan.php`, `User.php`)
+-   Controllers: `app/Http/Controllers/` (tersedia controller resource untuk tiap entitas)
+-   Routes web: `routes/web.php` (resource routes untuk entitas utama)
+-   Migrations: `database/migrations/` (cek skema tabel di sana)
+-   Views: `resources/views/`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Ringkasan routes utama**
 
-## Laravel Sponsors
+-   Resource routes terdaftar di `routes/web.php`:
+    -   `/barang` → `BarangController`
+    -   `/kategori` → `KategoriController`
+    -   `/user` → `UserController`
+    -   `/tanah` → `TanahController`
+    -   `/ruangan` → `RuanganController`
+    -   `/bangunan` → `BangunanController`
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+**Cara cepat menjalankan (lokal, PowerShell di Windows)**
 
-### Premium Partners
+1. Install dependensi PHP:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```powershell
+composer install
+```
 
-## Contributing
+2. Install dependensi JS:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```powershell
+npm install
+```
 
-## Code of Conduct
+3. Salin environment dan generate key:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```powershell
+copy .env.example .env ; php artisan key:generate
+```
 
-## Security Vulnerabilities
+4. Sesuaikan file `.env` (database dan APP_URL)
+5. Jalankan migrasi dan seeding (opsional):
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```powershell
+php artisan migrate
+php artisan db:seed
+```
 
-## License
+6. Jalankan pengembangan:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# dedesahroel
-# dedesahroel
+```powershell
+php artisan serve
+# di terminal lain: npx vite
+```
+
+Atau gunakan script npm:
+
+```powershell
+npm run dev
+```
+
+Catatan: `npm run dev` di repo ini menjalankan `npx concurrently "vite" "php artisan serve"`. Jika gagal di Windows, jalankan `php artisan serve` dan `npx vite` di terminal terpisah.
+
+**Menjalankan test**
+
+-   Menggunakan Pest/PHPUnit:
+
+```powershell
+php artisan test
+```
+
+atau (jika diperlukan):
+
+```powershell
+vendor\bin\pest
+```
+
+**Deployment singkat**
+
+-   `composer install --no-dev --optimize-autoloader`
+-   `npm run build`
+-   Set `APP_ENV=production`, `APP_KEY`, dan variabel DB di server
+-   `php artisan migrate --force`
+-   Pastikan `public/` dipakai sebagai document root dan berikan permission pada `storage/` dan `bootstrap/cache`.
+
+**Hal yang saya sarankan untuk dicek / langkah berikutnya**
+
+-   Periksa file migrasi di `database/migrations/` untuk melihat skema tabel dan relasi.
+-   Periksa `app/Http/Controllers/*Controller.php` untuk alur CRUD dan validasi (jika ada `FormRequest`, lihat `app/Http/Requests`).
+-   Periksa `resources/views/` untuk tampilan Blade dan integrasi frontend.
+
+**Lisensi**
+
+-   Proyek ini memakai lisensi MIT (sesuai skeleton Laravel).
+
+Jika Anda mau, saya bisa:
+
+-   Menambahkan skema tabel lengkap dari file migrasi ke README,
+-   Menyusun panduan setup Docker/Sail,
+-   Atau membuka dan menjelaskan salah satu controller (mis. `BarangController`).
+
+File yang saya edit: `README.md`

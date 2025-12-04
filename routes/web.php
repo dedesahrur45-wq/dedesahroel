@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\models\Barang;
 use App\Models\Kategori;
@@ -15,19 +16,29 @@ use App\Http\Controllers\RuanganController;
 use App\Http\Controllers\BangunanController;
 
 
-// Route::get('/', function () {
-//     return view('auth.login');
-// });
+// Note: Auth routes/views removed to make application public as requested.
+// Dashboard route (public)
+Route::get('/', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+// Dummy auth routes (disabled) — keep names to avoid broken links elsewhere
+Route::get('/login', function () {
+    return redirect()->route('dashboard');
+})->name('login');
+
+Route::post('/login', function () {
+    return redirect()->route('dashboard');
+});
+
+Route::post('/logout', function () {
+    return redirect()->route('dashboard');
+})->name('logout');
+
+// Public Resource Routes (anyone can view/add/edit/delete)
 Route::resource('/barang', BarangController::class)->names('barang');
 Route::resource('/kategori', KategoriController::class)->names('kategori');
 Route::resource('/user', UserController::class)->names('user');
 Route::resource('/tanah', TanahController::class)->names('tanah');
 Route::resource('/ruangan', RuanganController::class)->names('ruangan');
 Route::resource('/bangunan', BangunanController::class)->names('bangunan');
-
-// Route::middleware('guest')->group(function () {
-//     Route::get('/login', function () {
-//         return view('auth.login');
-//     })->name('login');
-//     Route::post('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('login.post');
-// });

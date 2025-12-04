@@ -7,6 +7,7 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    // No auth middleware: allow public create/edit/delete as requested
     /**
      * Display a listing of the resource.
      */
